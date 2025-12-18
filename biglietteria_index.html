@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Biglietteria Online</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="biglietteria_style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="mx-5 navbar-brand" href="#"><img src="../img/Logo.png" alt=""></img></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- MENU SINISTRA -->
+                <ul class="navbar-nav ms-5 gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cinema</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Prossimi Film</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Promozioni
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Disabili</a></li>
+                            <li><a class="dropdown-item" href="#">Scolastici</a></li>
+                            <li><a class="dropdown-item" href="#">Militari</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Eventi</a>
+                    </li>
+                </ul>
+
+                <!-- MENU DESTRA -->
+                <ul class="navbar-nav ms-auto gap-2 align-items-lg-center me-5">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Accedi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn bottone" href="#">Registrati</a>
+                    </li>
+                </ul>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+    <!-- Content -->
+    <div class="hero-section">
+        <img src="img/photo-1489599849927-2ee91cede3ba.avif" alt="Cinema Chairs" class="hero-bg">
+
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="mx-auto col-12 col-md-8 col-lg-6">
+                    <div class="ticket-box">
+                        <h1 class="mb-4 text-center">Biglietteria Online</h1>
+
+                        <!-- Seleziona Giorno -->
+                        <div class="mb-3">
+                            <label class="form-label">Seleziona il giorno</label>
+                            <select id="giorno" class="form-select" onchange="aggiornaTotale()">
+                                <option>Lunedì</option>
+                                <option>Martedì</option>
+                                <option>Mercoledì</option>
+                                <option>Giovedì</option>
+                                <option>Venerdì</option>
+                                <option>Sabato</option>
+                                <option>Domenica</option>
+                            </select>
+                        </div>
+
+                        <!-- Seleziona Orario -->
+                        <div class="mb-3">
+                            <label class="form-label">Seleziona l’orario</label>
+                            <select id="orario" class="form-select" onchange="aggiornaTotale()">
+                                <option>Pomeridiano</option>
+                                <option>Serale</option>
+                            </select>
+                        </div>
+
+                        <!-- Seleziona Sala -->
+                        <div class="mb-3">
+                            <label class="form-label">Seleziona la sala</label>
+                            <select id="sala" class="form-select" onchange="aggiornaTotale()">
+                                <option>Sala 1</option>
+                                <option>Sala 2</option>
+                                <option>Sala 3</option>
+                                <option>Sala 4</option>
+                                <option>Sala 5</option>
+                                <option>Sala 6</option>
+                                <option>Sala 7</option>
+                                <option>Sala 8</option>
+                                <option>Sala 9</option>
+                                <option>Sala 10</option>
+                            </select>
+                        </div>
+
+                        <!-- Numero Biglietti -->
+                        <div class="mb-4">
+                            <label class="form-label">Numero di biglietti</label>
+                            <div class="d-flex align-items-center">
+                                <button type="button" class="btn btn-custom-minus" onclick="cambiaNumero(-1)">
+                                    <i class="fa-solid fa-circle-minus"></i>
+                                </button>
+                                <span id="numDisplay" class="mx-3">0</span>
+                                <button type="button" class="btn btn-custom-plus" onclick="cambiaNumero(1)">
+                                    <i class="fa-solid fa-circle-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+
+
+                        <!-- Checkbox Sconti -->
+                        <div class="mb-3">
+                            <label class="form-label">Sconti disponibili</label><br>
+                            <input type="checkbox" id="studenti" onchange="aggiornaTotale()"> Studenti fino a 26
+                            anni<br>
+                            <input type="checkbox" id="disabili" onchange="aggiornaTotale()"> Disabili<br>
+                            <input type="checkbox" id="forzeArmate" onchange="aggiornaTotale()"> Forze Armate<br>
+                            <input type="checkbox" id="menuCinema" onchange="aggiornaTotale()"> Menù + Cinema (20%
+                            sconto)<br>
+                        </div>
+
+                        <!-- Nota importante -->
+                        <p class="discount-note">
+                            *Nota: Per facilitare l'accesso ti preghiamo di mostrare la documentazione dello sconto
+                            insieme
+                            al biglietto all’ingresso.
+                        </p>
+
+                        <!-- Totale -->
+                        <div id="totale" class="mt-4 fw-bold">Totale da pagare: €0.00</div>
+
+                        <!-- Bottone -->
+                        <button id="continuaBtn" class="btn btn-custom w-100 mt-4">
+                            Continua
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS File -->
+    <script>
+        let numeroBiglietti = 0; // the starting number of tickets
+
+        function cambiaNumero(delta) {
+            numeroBiglietti += delta;
+            if (numeroBiglietti < 0) numeroBiglietti = 0;
+            if (numeroBiglietti > 10) numeroBiglietti = 10;
+            document.getElementById("numDisplay").innerText = numeroBiglietti;
+            aggiornaTotale(); // update total whenever number changes
+        }
+
+        function aggiornaTotale() {
+            const prezzoBiglietto = 10;
+            let totale = prezzoBiglietto * numeroBiglietti;
+
+            // 3×2 automatico
+            if (numeroBiglietti >= 3) {
+                let gratis = Math.floor(numeroBiglietti / 3);
+                totale -= gratis * prezzoBiglietto;
+            }
+
+            // optional discounts
+            if (document.getElementById("studenti").checked) totale *= 0.8;
+            if (document.getElementById("disabili").checked) totale *= 0.8;
+            if (document.getElementById("forzeArmate").checked) totale *= 0.8;
+            if (document.getElementById("menuCinema").checked) totale *= 0.8;
+
+            document.getElementById("totale").innerText = "Totale da pagare: €" + totale.toFixed(2);
+        }
+
+    </script>
+</body>
+
+</html>
