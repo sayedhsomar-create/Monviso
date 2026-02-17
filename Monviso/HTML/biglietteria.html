@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Biglietteria Online</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="biglietteria_style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="mx-5 navbar-brand" href="../HTML/home.html"><img src="../img/Logo.png" alt=""></img></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- MENU SINISTRA -->
+                <ul class="navbar-nav ms-5 gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../HTML/home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../HTML/home.html#prossimi-film">Prossimi Film</a>
+                    </li>
+
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="evento.html">Eventi</a>
+                    </li>
+                </ul>
+
+                <!-- MENU DESTRA -->
+                <ul class="navbar-nav ms-auto gap-2 align-items-lg-center me-5">
+                    <li class="nav-item">
+                        <a class="nav-link" href="accesso.html">Accedi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn bottone" href="accesso.html">Registrati</a>
+                    </li>
+                </ul>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+    <!-- Content -->
+    <div class="hero-section">
+        <img src="../img/photo-1489599849927-2ee91cede3ba.avif" alt="Cinema Chairs" class="hero-bg">
+
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="mx-auto col-12 col-md-8 col-lg-6">
+                    <div class="ticket-box">
+                        <h1 class="mb-4 text-center">Biglietteria Online</h1>
+
+                        <div class="mb-3">
+                            <label class="form-label">Film Selezionato</label>
+                            <select id="filmSelected" class="form-select" onchange="aggiornaTotale()">
+                                <option value="">Scegli un film</option>
+                                <option value="Oppenheimer">Oppenheimer</option>
+                                <option value="Inception">Inception</option>
+                                <option value="Interstellar">Interstellar</option>
+                                <option value="The Dark Knight">The Dark Knight</option>
+                                <option value="Spider-Man: Spider-Verse">Spider-Man: Spider-Verse</option>
+                                <option value="The Godfather">The Godfather</option>
+                                <option value="Avatar 2">Avatar 2</option>
+                                <option value="The Martian">The Martian</option>
+                                <option value="The Lion King">The Lion King</option>
+                                <option value="Joker">Joker</option>
+                            </select>
+                        </div>
+
+                        <!-- Seleziona Sala -->
+                        <div class="mb-3">
+                            <label class="form-label">Seleziona la sala</label>
+                            <select id="sala" class="form-select" onchange="aggiornaTotale()">
+                                <option>Seleziona la sala</option>
+                                <option>Sala 1</option>
+                                <option>Sala 2</option>
+                                <option>Sala 3</option>
+                                <option>Sala 4</option>
+                                <option>Sala 5</option>
+                                <option>Sala 6</option>
+                                <option>Sala 7</option>
+                                <option>Sala 8</option>
+                                <option>Sala 9</option>
+                                <option>Sala 10</option>
+                            </select>
+                        </div>
+
+
+                        <!-- Seleziona Giorno -->
+                        <div class="mb-3">
+                            <label class="form-label">Seleziona il giorno</label>
+                            <select id="giorno" class="form-select" onchange="aggiornaTotale()">
+                                <option>Seleziona il giorno</option>
+                                <option>Lunedì</option>
+                                <option>Martedì</option>
+                                <option>Mercoledì</option>
+                                <option>Giovedì</option>
+                                <option>Venerdì</option>
+                                <option>Sabato</option>
+                                <option>Domenica</option>
+                            </select>
+                        </div>
+
+                        <!-- Seleziona Orario -->
+                        <div class="mb-3">
+                            <label class="form-label">Seleziona l’orario</label>
+                            <select id="orario" class="form-select" onchange="aggiornaTotale()">
+                                <option>Seleziona l’orario</option>
+                                <option>15:00</option>
+                                <option>17:30</option>
+                                <option>20:00</option>
+                                <option>22:30</option>
+                            </select>
+                        </div>
+
+
+
+                        <!-- Numero Biglietti -->
+                        <div class="mb-4">
+                            <label class="form-label">Numero di biglietti</label>
+                            <div class="d-flex align-items-center">
+                                <button type="button" class="btn btn-custom-minus" onclick="cambiaNumero(-1)">
+                                    <i class="fa-solid fa-circle-minus"></i>
+                                </button>
+                                <span id="numDisplay" class="mx-3">0</span>
+                                <button type="button" class="btn btn-custom-plus" onclick="cambiaNumero(1)">
+                                    <i class="fa-solid fa-circle-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+
+
+                        <!-- Checkbox Sconti -->
+                        <div class="mb-3">
+                            <label class="form-label">Sconti disponibili</label><br>
+                            <input type="checkbox" id="studenti" onchange="aggiornaTotale()"> Studenti fino a 26
+                            anni<br>
+                            <input type="checkbox" id="disabili" onchange="aggiornaTotale()"> Disabili<br>
+                            <input type="checkbox" id="forzeArmate" onchange="aggiornaTotale()"> Forze Armate<br>
+
+                            <input type="checkbox" id="menuCinema" onchange="toggleMenuOptions(); aggiornaTotale()">
+                            <strong>Menù + Cinema (20% sconto)</strong><br>
+                        </div>
+
+                        <div id="foodSelection" class="mt-2 mb-3 p-3 border rounded shadow-sm"
+                            style="display: none; background: rgba(212, 154, 90, 0.1); border-color: #D49A5A !important;">
+
+                            <div class="row">
+                                <div class="col-md-8 mb-2">
+                                    <label class="form-label fw-bold" style="color: #D49A5A;">Seleziona il tuo
+                                        Menù:</label>
+                                    <select id="tipoMenu" class="form-select" onchange="aggiornaTotale()">
+                                        <option value="Popcorn + Bibita">🍿 Popcorn + Bibita (€8.00)</option>
+                                        <option value="Nachos + Birra">🌮 Nachos + Birra (€10.00)</option>
+                                        <option value="Hot Dog + Coca">🌭 Hot Dog + Coca (€9.00)</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4 mb-2">
+                                    <label class="form-label fw-bold" style="color: #D49A5A;">Quantità:</label>
+                                    <input type="number" id="quantitaMenu" class="form-control" value="1" min="1"
+                                        max="10" onchange="aggiornaTotale()">
+                                </div>
+                            </div>
+
+                            <small class="text d-block mt-1 italic">*Puoi scegliere un numero di menù non superiore al
+                                numero dei biglietti.</small>
+                        </div>
+
+                        <!-- Nota importante -->
+                        <p class="discount-note">
+                            *Nota: Per facilitare l'accesso ti preghiamo di mostrare la documentazione dello sconto
+                            insieme
+                            al biglietto all’ingresso.
+                        </p>
+
+                        <!-- Totale -->
+                        <div id="totale" class="mt-4 fw-bold">Totale da pagare: €0.00</div>
+
+                        <!-- Bottone -->
+                        <button class="btn btn-soft-hover w-100" onclick="procediAlPagamento()">
+                            Continua al Pagamento
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS File -->
+    <script>
+
+
+        // 1. المتغيرات العامة
+        let numeroBiglietti = 0;
+
+        // 2. عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function () {
+            const params = new URLSearchParams(window.location.search);
+            const movieName = params.get('film');
+            const salaNum = params.get('sala');
+
+            if (movieName) document.getElementById('filmSelected').value = movieName;
+            if (salaNum) document.getElementById('sala').value = "Sala " + salaNum;
+
+            aggiornaTotale();
+        });
+
+        // 3. تغيير عدد التذاكر
+        function cambiaNumero(delta) {
+            numeroBiglietti += delta;
+            if (numeroBiglietti < 0) numeroBiglietti = 0;
+            if (numeroBiglietti > 10) numeroBiglietti = 10;
+
+            document.getElementById("numDisplay").innerText = numeroBiglietti;
+
+            // السطر الجديد اللي بيظبط "سقف" عدد الوجبات بناءً على التذاكر
+            const inputMenu = document.getElementById("quantitaMenu");
+            if (inputMenu) {
+                inputMenu.max = numeroBiglietti; // تحديث الحد الأقصى
+
+                // لو عدد الوجبات المكتوب حالياً أكبر من عدد التذاكر الجديد.. نزله فوراً
+                if (parseInt(inputMenu.value) > numeroBiglietti) {
+                    inputMenu.value = numeroBiglietti;
+                }
+            }
+
+            aggiornaTotale();
+        }
+
+        // 4. إظهار/إخفاء قائمة الوجبات
+        function toggleMenuOptions() {
+            const isChecked = document.getElementById('menuCinema').checked;
+            const foodDiv = document.getElementById('foodSelection');
+            foodDiv.style.display = isChecked ? 'block' : 'none';
+        }
+
+        // 5. الحسبة البرنس (التذاكر + الوجبة - الخصم)
+        function aggiornaTotale() {
+            const prezzoBiglietto = 10;
+            const giornoSelezionato = document.getElementById("giorno").value;
+            let totaleBiglietti = prezzoBiglietto * numeroBiglietti;
+
+            // 1. شرط عرض 3x2: فقط أيام (الثلاثاء، الأربعاء، الخميس)
+            const giorniSconto = ["Martedì", "Mercoledì", "Giovedì"];
+            if (giorniSconto.includes(giornoSelezionato) && numeroBiglietti >= 3) {
+                let bigliettiGratis = Math.floor(numeroBiglietti / 3);
+                totaleBiglietti -= (bigliettiGratis * prezzoBiglietto);
+            }
+
+            // 2. حساب سعر الوجبات بناءً على العدد المختار
+            let totaleMenu = 0;
+            if (document.getElementById("menuCinema").checked) {
+                const tipoMenu = document.getElementById("tipoMenu").value;
+                const quantitaMenu = parseInt(document.getElementById("quantitaMenu").value) || 0;
+
+                // تحديد سعر الوحدة للوجبة
+                let prezzoUnitarioMenu = 0;
+                if (tipoMenu.includes("Popcorn")) prezzoUnitarioMenu = 8;
+                else if (tipoMenu.includes("Nachos")) prezzoUnitarioMenu = 10;
+                else if (tipoMenu.includes("Hot Dog")) prezzoUnitarioMenu = 9;
+
+                totaleMenu = prezzoUnitarioMenu * quantitaMenu;
+            }
+
+            // 3. الإجمالي الفرعي قبل خصم الـ 20%
+            let totaleParziale = totaleBiglietti + totaleMenu;
+
+            // 4. تطبيق الخصومات التراكمية (20% على كل شيء)
+            if (document.getElementById("studenti").checked) totaleParziale *= 0.8;
+            if (document.getElementById("disabili").checked) totaleParziale *= 0.8;
+            if (document.getElementById("forzeArmate").checked) totaleParziale *= 0.8;
+            if (document.getElementById("menuCinema").checked) totaleParziale *= 0.8;
+
+            // عرض النتيجة النهائية
+            document.getElementById("totale").innerText = "Totale da pagare: €" + totaleParziale.toFixed(2);
+        }
+
+        // 6. الترحيل لصفحة الدفع
+        function procediAlPagamento() {
+            const film = document.getElementById('filmSelected').value;
+            const giorno = document.getElementById('giorno').value;
+            const orario = document.getElementById('orario').value;
+            const totaleTesto = document.getElementById('totale').innerText;
+
+            // التأكد من اختيار فيلم وتذكرة واحدة على الأقل
+            if (!film || numeroBiglietti === 0) {
+                alert("Per favore, seleziona un film e almeno un biglietto!");
+                return;
+            }
+
+            // تجميع كل البيانات في كائن واحد (Object)
+            const orderData = {
+                film: film,
+                sala: document.getElementById('sala').value,
+                giorno: giorno,
+                orario: orario,
+                quantita: numeroBiglietti,
+                // بنشيل كلمة "Totale" عشان ناخد الرقم بس
+                totale: totaleTesto.replace("Totale da pagare: €", ""),
+                // بنسجل نوع الوجبة وعددها
+                menu: document.getElementById('menuCinema').checked ? document.getElementById('tipoMenu').value : "Nessuno",
+                quantitaMenu: document.getElementById('menuCinema').checked ? document.getElementById('quantitaMenu').value : 0
+            };
+
+            // حفظ البيانات في ذاكرة المتصفح
+            localStorage.setItem('ticketData', JSON.stringify(orderData));
+
+            // الانتقال لصفحة الملخص
+            window.location.href = "riepilogo.html";
+        }
+    </script>
+</body>
+
+</html>

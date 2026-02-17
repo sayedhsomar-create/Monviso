@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema Stars - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="home_style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="mx-5 navbar-brand" href="#"><img src="../img/Logo.png" alt="Logo"
+                    style="max-height: 60px; border: 1px solid #D49A5A; border-radius: 8px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-5 gap-3">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#prossimi-film">Prossimi Film</a></li>
+                    <li class="nav-item"><a class="nav-link" href="evento.html">Eventi</a></li>
+                </ul>
+                <ul class="navbar-nav ms-auto gap-2 me-5">
+                    <li class="nav-item"><a class="nav-link" href="accesso.html">Accedi</a></li>
+                    <li class="nav-item"><a class="btn bottone" href="accesso.html">Registrati</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-home">
+        <div class="hero-overlay"></div>
+        <div class="container h-100 d-flex align-items-center">
+            <div class="hero-content">
+                <span class="badge bg-warning text-dark mb-2">NUOVO</span>
+                <h1 class="display-3 fw-bold text-uppercase">Oppenheimer</h1>
+                <p class="lead">Un viaggio nell'abisso della mente umana e della storia.</p>
+                <div class="d-flex gap-3 mt-4">
+                    <a href="biglietteria.html?film=Oppenheimer" class="btn btn-custom btn-lg">Prenota Ora</a>
+                    <a href="https://www.youtube.com/watch?v=uYPbbksJxIg" target="_blank" class="btn btn-outline-light btn-lg">Guarda Trailer</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <main class="container py-5">
+            <h2 class="mb-5 text-center"
+                style="color: #d49a5a; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">
+                In Programmazione
+            </h2>
+
+            <div class="row g-4" id="movies-grid">
+            </div>
+        </main>
+
+
+        <section id="prossimi-film" class="container py-5 mt-5">
+    <div class="ticket-box"> <h2 class="mb-4 text-center" style="color: #d49a5a;">Prossimi Film in Arrivo</h2>
+        <p class="text-center mb-5" style="color: #cbb8a3;">List of anticipated films and their initial release dates</p>
+        
+        <div class="table-responsive">
+            <table class="table table table-hover custom-table">
+                <thead>
+                    <tr>
+                        <th style="color: #d49a5a;">Titolo del Film</th>
+                        <th style="color: #d49a5a;">Genere</th>
+                        <th style="color: #d49a5a;">Data di Uscita</th>
+                        <th style="color: #d49a5a;">Dettagli</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dune: Part Two</td>
+                        <td>Sci-Fi / Epic</td>
+                        <td>15 Marzo 2026</td>
+                        <td>In Sala IMAX e 4DX</td>
+                    </tr>
+                    <tr>
+                        <td>Deadpool 3</td>
+                        <td>Azione / Commedia</td>
+                        <td>20 Aprile 2026</td>
+                        <td>Solo per un pubblico adulto</td>
+                    </tr>
+                    <tr>
+                        <td>Mission Impossible 8</td>
+                        <td>Azione / Thriller</td>
+                        <td>12 Maggio 2026</td>
+                        <td>Ultimo capitolo della saga</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section id="special-offers" class="container py-5">
+    <h2 class="text-center mb-5" style="color: #d49a5a; font-weight: bold;">Offerte Speciali & Sconti</h2>
+    
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card offer-card h-100">
+                <div class="card-body text-center">
+                    <div class="offer-icon">3x2</div>
+                    <h5 class="card-title" style="color: #d49a5a;">Promozione 3x2</h5>
+                    <p class="card-text">Ogni 2 biglietti acquistati, il terzo è in OMAGGIO!</p>
+                    <span class="badge rounded-pill bg-warning text-dark">Mar - Mer - Gio</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card offer-card h-100">
+                <div class="card-body text-center">
+                    <div class="offer-icon"><i class="bi bi-person-badge"></i></div>
+                    <h5 class="card-title" style="color: #d49a5a;">Sconti Speciali</h5>
+                    <p class="card-text">Riduzioni per Studenti (fino a 26 anni), Disabili e Forze Armate.</p>
+                    <p class="small text-muted">Presentare un documento all’ingresso</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card offer-card h-100">
+                <div class="card-body text-center">
+                    <div class="offer-icon">-20%</div>
+                    <h5 class="card-title" style="color: #d49a5a;">Formula Menù</h5>
+                    <p class="card-text">Acquista il pacchetto Menù + Cinema e ricevi subito lo sconto del 20%.</p>
+                    <span class="badge rounded-pill" style="background-color: #d49a5a;">Più Popolare</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+       <footer class="py-3 mt-5" style="background: #143737; border-top: 1px solid #D49A5A;">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+            
+            <div class="d-flex align-items-center gap-3">
+                <img src="../img/Logo.png" alt="Logo" style="max-height: 35px; border: 1px solid #D49A5A; border-radius: 5px;">
+                <span class="small" style="color: #f5e9da;">&copy; 2026 Cinema Stars.</span>
+            </div>
+
+            <div class="d-flex gap-4 footer-info-slim">
+                <small style="color: #cbb8a3;"><i class="fas fa-map-marker-alt text-warning me-1"></i> Via Roma 14, Cuneo</small>
+                <small style="color: #cbb8a3;"><i class="fas fa-phone text-warning me-1"></i> +39 0171 123456</small>
+            </div>
+
+            <div class="legal-info-slim">
+                <small style="color: #888;">P.IVA: 01234567890 | <a href="#" style="color: #888; text-decoration: none;">Privacy</a></small>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            // 1. مصفوفة الأفلام (دي اللي هتيجي من الـ Java API بعدين)
+            const movies = [
+                {
+                    title: "Oppenheimer",
+                    genre: "Drammatico / Storico",
+                    rating: 8.9,
+                    image: "../img/oppenheimer.jpg",
+                    sala: 1,
+                    basePrice: 10, // Base ticket price
+                    shows: ["15:00", "17:30", "20:00", "22:30"]
+                },
+                {
+                    title: "Inception",
+                    genre: "Sci-Fi / Action",
+                    rating: 9.0,
+                    image: "../img/Inception.jpg",
+                    sala: 2,
+                    basePrice: 10, // Base ticket price
+                    shows: ["15:00", "17:30", "20:00", "22:30"]
+                },
+                {
+                    title: "Interstellar",
+                    genre: "Sci-Fi / Drammatico",
+                    rating: 8.7,
+                    image: "../img/interstellar.jpg",
+                    sala: 3,
+                    basePrice: 10, // Base ticket price
+                    shows: ["15:00", "17:30", "20:00", "22:30"]
+                },
+                {
+                    title: "The Dark Knight",
+                    genre: "Azione / Crime",
+                    rating: 9.0,
+                    image: "../img/dark_knight.jpg",
+                    sala: 4,
+                    basePrice: 10, // Base ticket price
+                    shows: ["15:00", "17:30", "20:00", "22:30"]
+                },
+                {
+                    title: "Spider-Man: Spider-Verse",
+                    genre: "Animazione / Avventura",
+                    rating: 8.8,
+                    image: "../img/spiderman.png",
+                    sala: 5,
+                    basePrice: 10, // Base ticket price
+                    shows: ["15:00", "17:30", "20:00", "22:30"]
+                },
+                {
+                    title: "The Godfather",
+                    genre: "Crime / Drammatico",
+                    rating: 9.2,
+                    image: "../img/godfather.jpg",
+                    sala: 6,
+                    basePrice: 10, // Base ticket price
+                    shows: ["15:00", "17:30", "20:00", "22:30"]
+                },
+                {
+                    title: "Avatar 2",
+                    genre: "Azione / Fantasy",
+                    rating: 7.6,
+                    image: "../img/avatar.jpg",
+                    sala: 7,
+                    basePrice: 10, // Base ticket price
+                    shows: ["15:00", "17:30", "20:00", "22:30"]
+                },
+                {
+                    title: "The Martian",
+                    genre: "Fantascienza / Avventura",
+                    rating: 8.0,
+                    image: "../img/the_martian.jpg",
+                    sala: 8,
+                    basePrice: 10, // Base ticket price
+                    shows: ["15:00", "17:30", "20:00", "22:30"]
+                },
+                {
+                    title: "The Lion King",
+                    genre: "Animazione / Famiglia",
+                    rating: 8.5,
+                    image: "../img/lion_king.jpg",
+                    sala: 9,
+                    basePrice: 10, // Base ticket price
+                    shows: ["15:00", "17:30", "20:00", "22:30"]
+                },
+                {
+                    title: "Joker",
+                    genre: "Thriller / Drammatico",
+                    rating: 8.4,
+                    image: "../img/joker.jpg",
+                    sala: 10,
+                    basePrice: 10, // Base ticket price
+                    shows: ["15:00", "17:30", "20:00", "22:30"]
+                }
+
+
+            ];
+
+            // 2. وظيفة رسم الأفلام في الصفحة
+            function renderMovies() {
+                const grid = document.getElementById('movies-grid');
+                grid.innerHTML = ''; // فضي المكان الأول
+
+                movies.forEach(movie => {
+                    // هنا بنستخدم نفس الكود بتاعك بالظبط بس بنغير البيانات
+                    const movieHTML = `
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="movie-card">
+                        <div class="poster-container">
+                            <img src="${movie.image}" alt="${movie.title}">
+                            <div class="poster-overlay">
+                            <a href="biglietteria.html?film=${encodeURIComponent(movie.title)}&sala=${movie.sala}" class="btn btn-custom">Acquista Biglietto</a>
+                            </div>
+                        </div>
+                        <div class="movie-info p-3 text-center">
+                            <h5>${movie.title}</h5>
+                            <p class="small text-muted">${movie.genre}</p>
+                            <div class="rating"><i class="fas fa-star text-warning"></i> ${movie.rating}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+                    grid.innerHTML += movieHTML;
+                });
+            }
+
+            // 3. تشغيل الدالة فور تحميل الصفحة
+            document.addEventListener('DOMContentLoaded', renderMovies);
+        </script>
+
+
+</body>
+
+
+
+</html>

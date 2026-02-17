@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesso - Cinema Elite</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        /* نفس تنسيقاتك اللي بعتها */
+        .navbar {
+            background-color: #143737;
+            border-bottom: 2px solid #D49A5A;
+        }
+        .navbar .nav-link { color: #f5e9da !important; }
+        .navbar .nav-link:hover { color: #D49A5A !important; }
+
+        .bottone, .btn-custom {
+            background-color: #d49a5a;
+            color: #0e2a2a;
+            font-weight: bold;
+            border: none;
+            transition: 0.3s;
+        }
+        .bottone:hover, .btn-custom:hover {
+            background-color: #b88344;
+            color: #f5e9da;
+        }
+
+        /* تنسيقات إضافية للصفحة */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #0b1d1d;
+        }
+
+        .bg-image {
+            background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3'); 
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
+
+        .overlay {
+            background: rgba(11, 29, 29, 0.8); 
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 100px; /* عشان الفورم متبقاش لازقة في الناف بار */
+        }
+
+        .login-card {
+            background: #143737;
+            border: 2px solid #d49a5a;
+            border-radius: 15px;
+            padding: 35px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* تحسين وضوح النصوص اللي كانت غامقة */
+        .form-label {
+            color: #f5e9da !important; /* نفس لون الروابط عندك */
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            background: rgba(11, 29, 29, 0.9);
+            border: 1px solid #d49a5a;
+            color: #f5e9da !important;
+        }
+
+        .form-control::placeholder {
+            color: #b88344 !important; /* ذهبي أغمق شوية عشان يبان */
+            opacity: 0.8;
+        }
+
+        .toggle-text {
+            color: #f5e9da !important;
+            margin-top: 20px;
+        }
+
+        .toggle-link {
+            color: #D49A5A;
+            font-weight: bold;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="mx-5 navbar-brand" href="home.html">
+                <img src="../img/Logo.png" alt="Logo" style="max-height: 60px; border: 1px solid #D49A5A; border-radius: 8px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-5 gap-3">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home.html#prossimi-film">Prossimi Film</a></li>
+                    <li class="nav-item"><a class="nav-link" href="evento.html">Eventi</a></li>
+                </ul>
+                <ul class="navbar-nav ms-auto gap-2 me-5">
+                    <li class="nav-item"><a class="nav-link active" href="accesso.html" >Accedi</a></li>
+                    <li class="nav-item"><a class="btn bottone" href="accesso.html">Registrati</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-image">
+        <div class="overlay">
+            <div class="login-card">
+                <h2 id="formTitle" class="text-center mb-4" style="color:#D49A5A;">ACCEDI</h2>
+                
+                <form id="authForm">
+                    <div id="nameGroup" class="mb-3" style="display: none;">
+                        <label class="form-label">Nome Completo</label>
+                        <input type="text" class="form-control" placeholder="Inserisci il tuo nome">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="esempio@mail.it" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn bottone w-100">ACCEDI</button>
+                </form>
+
+                <div class="text-center toggle-text">
+                    <p id="toggleText">
+                        Non hai un account? 
+                        <span class="toggle-link" onclick="toggleAuth()">Registrati</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let isLogin = true;
+
+        function toggleAuth() {
+            isLogin = !isLogin;
+            const formTitle = document.getElementById('formTitle');
+            const submitBtn = document.getElementById('submitBtn');
+            const nameGroup = document.getElementById('nameGroup');
+            const toggleText = document.getElementById('toggleText');
+
+            if (isLogin) {
+                formTitle.innerText = "ACCEDI";
+                submitBtn.innerText = "ACCEDI";
+                nameGroup.style.display = "none";
+                toggleText.innerHTML = 'Non hai un account? <span class="toggle-link" onclick="toggleAuth()">Registrati</span>';
+            } else {
+                formTitle.innerText = "REGISTRATI";
+                submitBtn.innerText = "CREA ACCOUNT";
+                nameGroup.style.display = "block";
+                toggleText.innerHTML = 'Hai già un account? <span class="toggle-link" onclick="toggleAuth()">Accedi</span>';
+            }
+        }
+    </script>
+</body>
+</html>
